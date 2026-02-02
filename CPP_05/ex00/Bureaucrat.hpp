@@ -41,5 +41,6 @@ public:
 
 };
 
+std::ostream &operator<<(std::ostream &output, const Bureaucrat &bur);
 
 #endif

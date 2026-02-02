@@ -8,7 +8,7 @@ Bureaucrat::Bureaucrat(std::string name, int grade): _name(name), _grade(0) {
 	else
 		_grade = grade;
 		
-	std::cout << GRN << "Bureaucrat named " << _name << " created" << RES << std::endl;
+	std::cout << GRN << "Bureaucrat named " << _name << " created\n" << RES << std::endl;
 }
 
 Bureaucrat::Bureaucrat(const Bureaucrat &copy) : _name(copy._name), _grade(copy._grade) {
@@ -24,7 +24,7 @@ Bureaucrat& Bureaucrat::operator=(const Bureaucrat &src) {
 }
 
 Bureaucrat::~Bureaucrat() {
-	std::cout << RED << "\nBureaucrat named " << _name << " destroyed" << RES << std::endl;
+	std::cout << RED << "Bureaucrat named " << _name << " destroyed" << RES << std::endl;
 }
 
 const std::string Bureaucrat::getName() const {
@@ -52,9 +52,14 @@ void Bureaucrat::decrement() {
 }
 
 const char* Bureaucrat::GradeTooHighException::what() const throw() {
-	return "ERROR: Grade is too high! The highest grade is 1.";
+	return "ERROR: Grade is too high! The highest grade is 1.\n";
 }
 
 const char* Bureaucrat::GradeTooLowException::what() const throw() {
-	return "ERROR: Grade is too low! The lowest grade is 150.";
+	return "ERROR: Grade is too low! The lowest grade is 150.\n";
+}
+
+std::ostream& operator<<(std::ostream &output, const Bureaucrat &bur) {
+	output << bur.getName() << ", bureaucrat grade " << bur.getGrade();
+	return output;
 }

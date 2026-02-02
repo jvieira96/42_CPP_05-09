@@ -4,12 +4,7 @@ int main() {
 
 	Bureaucrat steve("Steve", 149);
 
-	std::cout 	<< "\nBureaucrat info:" 
-				<< "\nname: " 
-				<< steve.getName()
-				<< "\nGrade: "
-				<< steve.getGrade()
-				<< std::endl;
+	std::cout << YEL << steve << RES << std::endl;
 
 	try {
 		for (int i = 0; i < 2 ; i++) {
@@ -21,15 +16,9 @@ int main() {
 		std::cout << RED << e.what() << RES << std::endl;
 	}
 
-	std::cout << "\n" << std::endl;
 	Bureaucrat carlos("Carlos", 2);
 
-	std::cout 	<< "\nBureaucrat info:" 
-				<< "\nname: " 
-				<< carlos.getName()
-				<< "\nGrade: "
-				<< carlos.getGrade()
-				<< std::endl;
+	std::cout << YEL << carlos << RES << std::endl;
 
 	try { 
 		for (int i = 0; i < 2 ; i++) {
