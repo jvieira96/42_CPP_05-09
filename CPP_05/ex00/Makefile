@@ -2,7 +2,7 @@
 #                                NAMES & PATHS                                 #
 #==============================================================================#
 
-NAME = 	Bureaucrat
+NAME = 	Form
 
 SRCS =	main.cpp \
 		Bureaucrat.cpp

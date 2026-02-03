@@ -33,3 +33,37 @@ const char* Form::GradeTooHighException::what() const throw() {
 
 const char* Form::GradeTooLowException::what() const throw() {
 	return "ERROR: Grade is too low! The lowest grade is 150.\n";
+}
+
+bool Form::getIsSigned() const {
+	return _is_signed;
+}
+
+int Form::getSignGrade() const {
+	return _sign_grade;
+}
+
+int Form::getExecGrade() const {
+	return _exec_grade;
+}
+
+std::string Form::getName() const {
+	return _name;
+}
+
+std::ostream& operator<<(std::ostream &output, const Form &form) {
+	output 	<< YEL << "Name: " << form.getName() << std::endl
+			<< "signed: " << (form.getIsSigned() ? "True" : "False") << std::endl
+			<< "sign grade: " << form.getSignGrade() << std::endl
+			<< "exec grade: " << form.getExecGrade() << RES << std::endl;
+	return output;
+}
+
+void Form::beSigned(const Bureaucrat &bur) {
+	if (getSignGrade() >= bur.getGrade()) {
+		_is_signed = true;
+		std::cout << GRN << bur.getName() << " signed " << getName() << RES << std::endl;
+	}
+	else
+		throw GradeTooLowException();
+}
