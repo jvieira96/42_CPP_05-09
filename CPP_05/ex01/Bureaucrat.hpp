@@ -14,6 +14,8 @@
 #define BCYA "\033[36;1m"
 #define RES "\033[0m"
 
+class Form;
+
 class Bureaucrat {
 
 private:
@@ -38,6 +40,8 @@ public:
 		public:
 			 virtual const char* what() const throw();
 	};
+
+	void signForm(Form &form) const;
 
 };
 

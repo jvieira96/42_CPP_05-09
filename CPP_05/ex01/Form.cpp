@@ -1,7 +1,7 @@
 #include "Form.hpp"
 
 Form::Form(const std::string name, const int sign, const int exec)
-	: _name(name), _sign_grade(sign), _exec_grade(exec), _is_signed(false) {
+	: _name(name), _is_signed(false), _sign_grade(sign), _exec_grade(exec) {
 	if (_sign_grade > 150 || _exec_grade > 150)
 		throw GradeTooLowException();
 	else if (_sign_grade < 1 || _exec_grade < 1)
@@ -10,8 +10,8 @@ Form::Form(const std::string name, const int sign, const int exec)
 }
 
 Form::Form(const Form &copy) 
-	: _name(copy._name), _sign_grade(copy._sign_grade), 
-	_exec_grade(copy._exec_grade), _is_signed(copy._is_signed) {
+	: _name(copy.getName()), _is_signed(copy.getIsSigned()), 
+	_sign_grade(copy.getSignGrade()), _exec_grade(copy.getExecGrade()) {
 	std::cout << YEL << "Copy construct called" << RES << std::endl;
 }
 
@@ -28,11 +28,11 @@ Form::~Form() {
 }
 
 const char* Form::GradeTooHighException::what() const throw() {
-	return "ERROR: Grade is too high! The highest grade is 1.\n";
+	return "ERROR: Grade is too high!\n";
 }
 
 const char* Form::GradeTooLowException::what() const throw() {
-	return "ERROR: Grade is too low! The lowest grade is 150.\n";
+	return "ERROR: Grade is too low!\n";
 }
 
 bool Form::getIsSigned() const {
@@ -60,10 +60,8 @@ std::ostream& operator<<(std::ostream &output, const Form &form) {
 }
 
 void Form::beSigned(const Bureaucrat &bur) {
-	if (getSignGrade() >= bur.getGrade()) {
+	if (getSignGrade() >= bur.getGrade()) 
 		_is_signed = true;
-		std::cout << GRN << bur.getName() << " signed " << getName() << RES << std::endl;
-	}
 	else
 		throw GradeTooLowException();
 }

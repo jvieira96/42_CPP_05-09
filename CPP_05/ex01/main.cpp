@@ -1,38 +1,26 @@
 #include "Bureaucrat.hpp"
+#include "Form.hpp"
 
 int main() {
 
 	Bureaucrat steve("Steve", 149);
 
-	std::cout << YEL << steve << RES << std::endl;
+	std::cout << YEL << steve << RES << "\n" << std::endl;
 
-	try {
-		for (int i = 0; i < 2 ; i++) {
-			std::cout 	<< "\nDecrementing steve grade...\n";	
-			steve.decrement();
-		}
-	}		
-	catch (std::exception &e) {
-		std::cout << RED << e.what() << RES << std::endl;
-	}
+	Form form("form1", 100, 120);
 
-	Bureaucrat carlos("Carlos", 2);
+	std::cout << YEL << form << RES << std::endl;
 
-	std::cout << YEL << carlos << RES << std::endl;
-
-	try { 
-		for (int i = 0; i < 2 ; i++) {
-			std::cout 	<< "\nIncrementing steve grade...\n";	
-			carlos.increment();
-		}
-	}		
-	catch (std::exception &e) {
-		std::cout << RED << e.what() << RES << std::endl;
-	}
-
-
-
+	steve.signForm(form);
 	
+	Bureaucrat carlos("Carlos", 99);
+
+	carlos.signForm(form);
+
+	std::cout << YEL << form << RES << std::endl;
+
+	carlos.signForm(form);
+
 	return(0);
 
 }
