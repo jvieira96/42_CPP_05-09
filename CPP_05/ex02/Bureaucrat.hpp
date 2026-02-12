@@ -14,7 +14,7 @@
 #define BCYA "\033[36;1m"
 #define RES "\033[0m"
 
-class Form;
+class AForm;
 
 class Bureaucrat {
 
@@ -41,8 +41,8 @@ public:
 			 virtual const char* what() const throw();
 	};
 
-	void signForm(Form &form) const;
-
+	void signForm(AForm &form) const;
+	void executeForm(AForm const &form) const;
 };
 
 std::ostream &operator<<(std::ostream &output, const Bureaucrat &bur);

@@ -40,6 +40,6 @@ public:
 	virtual void 	execution() const = 0;
 };
 
-std::ostream& operator<<(std::ostream &output, const Form &form);
+std::ostream& operator<<(std::ostream &output, const AForm &form);
 
 #endif

@@ -24,3 +24,11 @@ PresidentialPardonForm::~PresidentialPardonForm() {
 	std::cout 	<< RED << "PresidentialPardonForm target: " 
 				<< _target << " destroyed" << std::endl;
 }
+
+std::string PresidentialPardonForm::getTarget() const {
+	return _target;
+}
+
+void PresidentialPardonForm::execution() const {
+	std::cout << BCYA << _target << " has been pardoned by Zaphod Beeblebrox." << RES << std::endl;
+}
