@@ -2,8 +2,7 @@
 
  PresidentialPardonForm::PresidentialPardonForm(std::string target)
  	: AForm(target, 25, 5), _target(target) {
-		std::cout 	<< GRN << "PresidentialPardonForm target: "
-					<< target << " created" << RES << std::endl;
+		std::cout 	<< GRN << "PresidentialPardonForm created" << RES << std::endl;
 }
 
 PresidentialPardonForm::PresidentialPardonForm(const PresidentialPardonForm &copy) 
@@ -21,8 +20,7 @@ PresidentialPardonForm& PresidentialPardonForm::operator= (const PresidentialPar
 }
 
 PresidentialPardonForm::~PresidentialPardonForm() {
-	std::cout 	<< RED << "PresidentialPardonForm target: " 
-				<< _target << " destroyed" << std::endl;
+	std::cout 	<< RED << "PresidentialPardonForm destroyed" << std::endl;
 }
 
 std::string PresidentialPardonForm::getTarget() const {

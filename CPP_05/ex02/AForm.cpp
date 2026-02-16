@@ -6,7 +6,7 @@ AForm::AForm(const std::string name, const int sign, const int exec)
 		throw GradeTooLowException();
 	else if (_sign_grade < 1 || _exec_grade < 1)
 		throw GradeTooHighException();
-	std::cout << GRN << "Form named " << _name << " created\n" << RES << std::endl;
+	std::cout << GRN << "Form named " << _name << " created" << RES << std::endl;
 }
 
 AForm::AForm(const AForm &copy) 
@@ -28,15 +28,15 @@ AForm::~AForm() {
 }
 
 const char* AForm::GradeTooHighException::what() const throw() {
-	return "ERROR: Grade is too high!\n";
+	return "ERROR: Grade is too high!";
 }
 
 const char* AForm::GradeTooLowException::what() const throw() {
-	return "ERROR: Grade is too low!\n";
+	return "ERROR: Grade is too low!";
 }
 
 const char* AForm::FormNotSignedException::what() const throw() {
-	return "ERROR: Form not signed!\n";
+	return "ERROR: Form not signed!";
 }
 
 bool AForm::getIsSigned() const {

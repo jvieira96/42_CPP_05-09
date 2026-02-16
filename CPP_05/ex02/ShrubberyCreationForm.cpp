@@ -3,8 +3,7 @@
 
  ShrubberyCreationForm::ShrubberyCreationForm(std::string target)
  	: AForm(target, 145, 137), _target(target) {
-		std::cout 	<< GRN << "ShrubberyCreationForm target: "
-					<< target << " created" << RES << std::endl;
+		std::cout 	<< GRN << "ShrubberyCreationForm created" << RES << std::endl;
 }
 
 ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm &copy) 
@@ -22,8 +21,7 @@ ShrubberyCreationForm& ShrubberyCreationForm::operator= (const ShrubberyCreation
 }
 
 ShrubberyCreationForm::~ShrubberyCreationForm() {
-	std::cout 	<< RED << "ShrubberyCreationForm target: " 
-				<< _target << " destroyed" << std::endl;
+	std::cout 	<< RED << "ShrubberyCreationForm destroyed" << std::endl;
 }
 
 std::string ShrubberyCreationForm::getTarget() const {

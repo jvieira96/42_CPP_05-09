@@ -3,8 +3,7 @@
 
  RobotomyRequestForm::RobotomyRequestForm(std::string target)
  	: AForm(target, 72, 45), _target(target) {
-		std::cout 	<< GRN << "RobotomyRequestForm target: "
-					<< target << " created" << RES << std::endl;
+		std::cout 	<< GRN << "RobotomyRequestForm created" << RES << std::endl;
 }
 
 RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm &copy) 
@@ -22,8 +21,7 @@ RobotomyRequestForm& RobotomyRequestForm::operator= (const RobotomyRequestForm &
 }
 
 RobotomyRequestForm::~RobotomyRequestForm() {
-	std::cout 	<< RED << "RobotomyRequestForm target: " 
-				<< _target << " destroyed" << std::endl;
+	std::cout 	<< RED << "RobotomyRequestForm destroyed" << std::endl;
 }
 
 std::string RobotomyRequestForm::getTarget() const {
