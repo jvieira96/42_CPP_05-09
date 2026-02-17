@@ -3,10 +3,12 @@
 #include "PresidentialPardonForm.hpp"
 #include "RobotomyRequestForm.hpp"
 #include "ShrubberyCreationForm.hpp"
-
+#include <ctime>
+#include <cstdlib>
 
 int main() {
 
+	std::srand(std::time(0));
 	Bureaucrat steve("Steve", 5);
 	Bureaucrat roger("Roger", 149);
 	PresidentialPardonForm PForm("PForm");
