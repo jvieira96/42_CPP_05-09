@@ -19,12 +19,25 @@ Intern::~Intern() {
 	std::cout << RED << "Intern destroyed" << RES << std::endl;
 }
 
-void Intern::makeForm(std::string formName, std::string target) {
+AForm *Intern::makeForm(std::string formName, std::string target) {
 	std::string forms[3] = {"robotomy request", "presidential pardon", "shrubbery creation"};
-	int index = 42;
+	int form = 42;
 
 	for (int i = 0; i < 3; i++) {
-		if (forms[i] == formName)
-		
+		if (forms[i] == formName) {
+			form = i;
+			break;
+		}
+	}
+
+	if (form != 42) {
+		std::cout << GRN << "Intern creates " << formName << RES << std::endl;
+	}
+
+	switch (form) {
+		case 0: return new RobotomyRequestForm(target);
+		case 1: return new PresidentialPardonForm(target);
+		case 2: return new ShrubberyCreationForm(target);
+		default:
 	}
 }

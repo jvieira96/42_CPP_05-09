@@ -3,8 +3,9 @@
 
 #include "Bureaucrat.hpp"
 #include "AForm.hpp"
-
-
+#include "PresidentialPardonForm.hpp"
+#include "RobotomyRequestForm.hpp"
+#include "ShrubberyCreationForm.hpp"
 
 
 
@@ -16,7 +17,7 @@ public:
 	Intern &operator=(const Intern &src);
 	~Intern();
 
-	void makeForm(std::string formName, std::string target);
+	AForm *makeForm(std::string formName, std::string target);
 };
 
 #endif 
