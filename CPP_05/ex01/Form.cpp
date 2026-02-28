@@ -6,7 +6,7 @@ Form::Form(const std::string name, const int sign, const int exec)
 		throw GradeTooLowException();
 	else if (_sign_grade < 1 || _exec_grade < 1)
 		throw GradeTooHighException();
-	std::cout << GRN << "Form named " << _name << " created\n" << RES << std::endl;
+	std::cout << GRN << "Form named " << _name << " created" << RES << std::endl;
 }
 
 Form::Form(const Form &copy) 
@@ -28,11 +28,11 @@ Form::~Form() {
 }
 
 const char* Form::GradeTooHighException::what() const throw() {
-	return "ERROR: Grade is too high!\n";
+	return "ERROR: Grade is too high!";
 }
 
 const char* Form::GradeTooLowException::what() const throw() {
-	return "ERROR: Grade is too low!\n";
+	return "ERROR: Grade is too low!";
 }
 
 bool Form::getIsSigned() const {
@@ -52,10 +52,10 @@ std::string Form::getName() const {
 }
 
 std::ostream& operator<<(std::ostream &output, const Form &form) {
-	output 	<< YEL << "Name: " << form.getName() << std::endl
+	output 	<< "Name: " << form.getName() << std::endl
 			<< "signed: " << (form.getIsSigned() ? "True" : "False") << std::endl
 			<< "sign grade: " << form.getSignGrade() << std::endl
-			<< "exec grade: " << form.getExecGrade() << RES << std::endl;
+			<< "exec grade: " << form.getExecGrade();
 	return output;
 }
 

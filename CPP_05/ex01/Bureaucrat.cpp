@@ -9,7 +9,7 @@ Bureaucrat::Bureaucrat(std::string name, int grade): _name(name), _grade(0) {
 	else
 		_grade = grade;
 		
-	std::cout << GRN << "Bureaucrat named " << _name << " created\n" << RES << std::endl;
+	std::cout << GRN << "Bureaucrat named " << _name << " created" << RES << std::endl;
 }
 
 Bureaucrat::Bureaucrat(const Bureaucrat &copy) : _name(copy._name), _grade(copy._grade) {
@@ -53,11 +53,11 @@ void Bureaucrat::decrement() {
 }
 
 const char* Bureaucrat::GradeTooHighException::what() const throw() {
-	return "ERROR: Grade is too high! The highest grade is 1.\n";
+	return "ERROR: Grade is too high! The highest grade is 1.";
 }
 
 const char* Bureaucrat::GradeTooLowException::what() const throw() {
-	return "ERROR: Grade is too low! The lowest grade is 150.\n";
+	return "ERROR: Grade is too low! The lowest grade is 150.";
 }
 
 std::ostream& operator<<(std::ostream &output, const Bureaucrat &bur) {
@@ -67,16 +67,16 @@ std::ostream& operator<<(std::ostream &output, const Bureaucrat &bur) {
 
 void Bureaucrat::signForm(Form &form) const {
 	if (form.getIsSigned()) {
-		std::cout << BCYA << "Form already signed.\n" << RES << std::endl;
+		std::cout << BCYA << "Form already signed." << RES << std::endl;
 		return;
 	}
 	try {
 		form.beSigned(*this);
 		std::cout 	<< BCYA << getName()
-					<< " signed " << form.getName() << "\n" << RES << std::endl;
+					<< " signed " << form.getName() << RES << std::endl;
 	}
 	catch(std::exception &e) {
-		std::cout 	<< RED << getName() << " couldn't sign " 
+		std::cerr 	<< RED << getName() << " couldn't sign " 
 					<< form.getName() << " because " << e.what() << RES << std::endl;
 	}
 

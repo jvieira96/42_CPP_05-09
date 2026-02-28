@@ -53,11 +53,11 @@ void Bureaucrat::decrement() {
 }
 
 const char* Bureaucrat::GradeTooHighException::what() const throw() {
-	return "ERROR: Grade is too high! The highest grade is 1.\n";
+	return "ERROR: Grade is too high! The highest grade is 1.";
 }
 
 const char* Bureaucrat::GradeTooLowException::what() const throw() {
-	return "ERROR: Grade is too low! The lowest grade is 150.\n";
+	return "ERROR: Grade is too low! The lowest grade is 150.";
 }
 
 std::ostream& operator<<(std::ostream &output, const Bureaucrat &bur) {

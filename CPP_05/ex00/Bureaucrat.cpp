@@ -8,7 +8,7 @@ Bureaucrat::Bureaucrat(std::string name, int grade): _name(name), _grade(0) {
 	else
 		_grade = grade;
 		
-	std::cout << GRN << "Bureaucrat named " << _name << " created\n" << RES << std::endl;
+	std::cout << GRN << "Bureaucrat named " << _name << " created" << RES << std::endl;
 }
 
 Bureaucrat::Bureaucrat(const Bureaucrat &copy) : _name(copy._name), _grade(copy._grade) {

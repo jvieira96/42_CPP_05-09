@@ -43,5 +43,5 @@ AForm *Intern::makeForm(std::string formName, std::string target) {
 }
 
 const char* Intern::InternException::what() const throw() {
-	return "ERROR: Form dosen't exist\n";
+	return "ERROR: Form dosen't exist";
 }

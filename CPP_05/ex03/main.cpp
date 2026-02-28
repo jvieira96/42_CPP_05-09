@@ -11,7 +11,6 @@ int main() {
 
 	std::srand(std::time(0));
 	Intern someRandomIntern;
-	Bureaucrat charles("Charles", 1);
 	AForm* form1 = NULL;
 	AForm* form2 = NULL;
 
@@ -19,6 +18,7 @@ int main() {
 	try
 	{
 		form1 = someRandomIntern.makeForm("robotomy request", "Bender");
+		Bureaucrat charles("Charles", 1);
 		charles.signForm(*form1);
 		charles.executeForm(*form1);
 	}
@@ -31,6 +31,7 @@ int main() {
 	try
 	{
 		form2 = someRandomIntern.makeForm("wrong request", "Bender");
+		Bureaucrat charles("Charles", 1);
 		charles.signForm(*form2);
 		charles.executeForm(*form2);
 	}

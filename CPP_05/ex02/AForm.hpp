@@ -15,7 +15,7 @@ public:
 	AForm(const std::string name, const int sign, const int exec);
 	AForm(const AForm &copy);
 	AForm &operator=(const AForm &src);
-	~AForm();
+	virtual ~AForm();
 
 	std::string	getName() const;
 	bool		getIsSigned() const;

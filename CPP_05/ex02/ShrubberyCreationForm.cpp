@@ -2,7 +2,7 @@
 #include <fstream>
 
  ShrubberyCreationForm::ShrubberyCreationForm(std::string target)
- 	: AForm(target, 145, 137), _target(target) {
+ 	: AForm("ShrubberyCreationForm", 145, 137), _target(target) {
 		std::cout 	<< GRN << "ShrubberyCreationForm created" << RES << std::endl;
 }
 

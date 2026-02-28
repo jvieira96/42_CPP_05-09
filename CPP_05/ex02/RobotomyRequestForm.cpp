@@ -2,7 +2,7 @@
 #include <cstdlib>
 
  RobotomyRequestForm::RobotomyRequestForm(std::string target)
- 	: AForm(target, 72, 45), _target(target) {
+ 	: AForm("RobotomyRequestForm", 72, 45), _target(target) {
 		std::cout 	<< GRN << "RobotomyRequestForm created" << RES << std::endl;
 }
 
