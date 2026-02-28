@@ -18,6 +18,11 @@ public:
 	~Intern();
 
 	AForm *makeForm(std::string formName, std::string target);
+
+	class InternException : public std::exception {
+		public:
+			virtual const char* what() const throw();
+	};
 };
 
-#endif 
+#endif

@@ -2,14 +2,15 @@
 #                                NAMES & PATHS                                 #
 #==============================================================================#
 
-NAME = 	manyForms
+NAME = 	Interns
 
 SRCS =	main.cpp \
 		Bureaucrat.cpp \
 		AForm.cpp \
 		PresidentialPardonForm.cpp \
 		RobotomyRequestForm.cpp \
-		ShrubberyCreationForm.cpp
+		ShrubberyCreationForm.cpp \
+		Intern.cpp
 
 OBJS =  $(SRCS:.cpp=.o)
 

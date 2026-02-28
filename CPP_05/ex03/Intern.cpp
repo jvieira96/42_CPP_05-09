@@ -31,13 +31,17 @@ AForm *Intern::makeForm(std::string formName, std::string target) {
 	}
 
 	if (form != 42) {
-		std::cout << GRN << "Intern creates " << formName << RES << std::endl;
+		std::cout << "Intern creates " << formName << RES << std::endl;
 	}
 
 	switch (form) {
 		case 0: return new RobotomyRequestForm(target);
 		case 1: return new PresidentialPardonForm(target);
 		case 2: return new ShrubberyCreationForm(target);
-		default:
+		default: throw InternException();
 	}
+}
+
+const char* Intern::InternException::what() const throw() {
+	return "ERROR: Form dosen't exist\n";
 }
