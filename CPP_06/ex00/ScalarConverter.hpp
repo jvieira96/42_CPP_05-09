@@ -5,6 +5,15 @@
 #include <climits>
 #include <iomanip>
 
+enum e_type{
+	CHAR,
+	INT,
+	FLOAT,
+	DOUBLE,
+	PSEUDO,
+	UNKNOWN
+};
+
 class ScalarConverter {
 
 	private:
