@@ -4,6 +4,8 @@
 #include <iostream>
 #include <climits>
 #include <iomanip>
+#include <cstdlib>
+#include <cctype>
 
 enum e_type{
 	CHAR,
