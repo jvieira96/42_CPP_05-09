@@ -83,8 +83,8 @@ static void intConvert(const std::string &input) {
 			std::cout << "char: '" << static_cast<char>(i) << "'" << std::endl;
 		std::cout << "int: " << i << std::endl;
 	}
-		std::cout << "float: " << std::setprecision(1) << static_cast<float>(nbr) << "f" << std::endl;
-		std::cout << "double: " << std::setprecision(1) << static_cast<double>(nbr) << std::endl;
+		std::cout << "float: " << std::fixed << std::setprecision(1) << static_cast<float>(nbr) << "f" << std::endl;
+		std::cout << "double: " << std::fixed << std::setprecision(1)<< static_cast<double>(nbr) << std::endl;
 }
 
 static void floatConvert(const std::string &input) {
@@ -105,8 +105,8 @@ static void floatConvert(const std::string &input) {
 	else
 		std::cout << "int: " << static_cast<int>(f) << std::endl;
 	if (f == static_cast<long>(f)) {
-		std::cout << "float: " << std::setprecision(1) << f << "f" << std::endl;
-		std::cout << "double: " << std::setprecision(1) << static_cast<double>(f) << std::endl;
+		std::cout << "float: " << std::fixed << std::setprecision(1) << f << "f" << std::endl;
+		std::cout << "double: " << std::fixed << std::setprecision(1) << static_cast<double>(f) << std::endl;
 	}
 	else {
 		std::cout << "float: " << f << "f" << std::endl;
@@ -131,8 +131,8 @@ static void doubleConvert(const std::string &input) {
 	else
 		std::cout << "int: " << static_cast<int>(val) << std::endl;
 	if (val == static_cast<long>(val)) {
-		std::cout << "float: " << std::setprecision(1) << static_cast<float>(val) << "f" << std::endl;
-		std::cout << "double: " << std::setprecision(1) << static_cast<double>(val) << std::endl;
+		std::cout << "float: " << std::fixed << std::setprecision(1) << static_cast<float>(val) << "f" << std::endl;
+		std::cout << "double: " << std::fixed << std::setprecision(1) << static_cast<double>(val) << std::endl;
 	}
 	else {
 		std::cout << "float: " << static_cast<float>(val) << "f" << std::endl;
