@@ -5,14 +5,15 @@
 #include <string>
 
 class Data {
-	public:
-		Data();
-		Data(const Data &copy);
-		Data &operator=(const Data &src);
-		~Data();
+	
+public:
+	Data();
+	Data(const Data &copy);
+	Data &operator=(const Data &src);
+	~Data();
 
-		std::string name;
-		int			age;
+	std::string name;
+	int			age;
 };
 
 #endif
