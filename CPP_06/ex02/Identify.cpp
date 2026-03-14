@@ -12,6 +12,10 @@ Base* generate(void) {
 }
 
 void identify(Base* p) {
+	if (p == NULL) {
+		std::cout << "ptr is NULL" << std::endl;
+		return;
+	}
 	if(dynamic_cast<A*>(p))
 		std::cout << "A" << std::endl;
 	else if (dynamic_cast<B*>(p))
