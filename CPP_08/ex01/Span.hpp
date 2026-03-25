@@ -3,6 +3,7 @@
 
 #include <vector>
 #include <algorithm>
+#include <iostream>
 
 class Span{
 
@@ -18,11 +19,19 @@ class Span{
 		~Span();
 
 		void addNumber(int nbr);
-		void addNumber(int first, int last);
+		template <typename Input>
+		void addNumber(Input first, Input last)
+		{
+			for (; first != last; ++first) {
+				if (_numbers.size() >= _maxSize)
+					throw SpanFullException();
+				_numbers.push_back(*first);
+			}
+		}
 		unsigned int shortestSpan() const;
 		unsigned int longestSpan() const;
 
-		class SpanFullExceptin : public std::exception {
+		class SpanFullException : public std::exception {
 			public:
 				virtual const char* what() const throw(){
 					return "ERROR: Span is full";

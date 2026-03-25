@@ -18,6 +18,12 @@ Span &Span::operator=(const Span &src) {
 
 Span::~Span() {}
 
+void Span::addNumber(int nbr) {
+	if (_numbers.size() >= _maxSize)
+		throw Span::SpanFullException();
+	_numbers.push_back(nbr);
+}
+
 unsigned int Span::shortestSpan() const {
 	if (_numbers.size() < 2)
 		throw Span::NotEnoughElementsException();
@@ -25,7 +31,7 @@ unsigned int Span::shortestSpan() const {
 	std::vector<int> copy = _numbers;
 	std::sort(copy.begin(),copy.end());
 	unsigned int min = copy[1] - copy[0];
-	for(int i = 1; i < copy.size() - 1; i++) {
+	for(size_t i = 1; i < copy.size() - 1; i++) {
 		unsigned int tmp = copy[i + 1] - copy[i];
 		if (tmp < min)
 			min = tmp;
@@ -38,5 +44,5 @@ unsigned int Span::longestSpan() const {
 		throw Span::NotEnoughElementsException();
 	std::vector<int> tmp = _numbers;
 	std::sort(tmp.begin(), tmp.end());
-	return tmp[0] - tmp[tmp.size() - 1];
+	return tmp[tmp.size() - 1] - tmp[0];
 }
