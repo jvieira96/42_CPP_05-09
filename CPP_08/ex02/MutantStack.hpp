@@ -1,18 +1,18 @@
 #ifndef MUTANTSTACK_HPP
-#define MUTANTSTACH_HPP
+#define MUTANTSTACK_HPP
 
 #include <iostream>
 #include <stack>
 
-template <typename T, typename Container = std::deque<T>>
+template <typename T, typename Container = std::deque<T> >
 class MutantStack : public std::stack<T, Container> {
 
     public:
-        MutantStack() : std::stack<T, Container> {};
+        MutantStack() : std::stack<T, Container>() {};
         MutantStack(const MutantStack &copy) : std::stack<T, Container>(copy) {};
         MutantStack &operator=(const MutantStack &src) {
-            if (this != &other) {
-                std::stack<T, Container>::operator=(other);
+            if (this != &src) {
+                std::stack<T, Container>::operator=(src);
             }
             return *this;
         }
@@ -21,7 +21,7 @@ class MutantStack : public std::stack<T, Container> {
         typedef typename Container::iterator iterator;
         typedef typename Container::const_iterator const_iterator;
         typedef typename Container::reverse_iterator reverse_iterator;
-        typedef typename Container::const_iterator const_reverse_iterator;
+        typedef typename Container::const_reverse_iterator const_reverse_iterator;
 
         iterator begin() {
             return this->c.begin();
