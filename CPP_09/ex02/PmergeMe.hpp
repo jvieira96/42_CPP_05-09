@@ -17,4 +17,7 @@ class PmergeMe {
         PmergeMe &operator=(const PmergeMe &src);
         ~PmergeMe();
 
+        void sortVector():
+        void mergeInsertVec(std::vector<int> &chain);
+
 }
