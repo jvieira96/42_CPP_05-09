@@ -30,19 +30,7 @@ PmergeMe &PmergeMe::operator=(const PmergeMe &src) {
 PmergeMe::~PmergeMe() {}
 
 void PmergeMe::sortVector() {
-    std::vector<std::pair<int,int>> pairs;
-
-    for (size_t i = 0; i + 1 < _vector.size(); i += 2) {
-        int n1 = _vector[i];
-        int n2 = _vector[i + 1];
-        if (n1 > n2)
-            std::swap(n1, n2);
-        pairs.push_back(std::make_pair(n1, n2));
-    }
-
-    int oddNbr = -1;
-    if (_vector.size() % 2 != 0)
-        oddNbr = _vector.back();
+    mergeInsertVec(_vector);
 }
 
 void PmergeMe::mergeInsertVec(std::vector<int> &chain) {
@@ -50,21 +38,54 @@ void PmergeMe::mergeInsertVec(std::vector<int> &chain) {
         return;
 
     std::vector<std::pair<int,int>> pairs;
-    for (size_t i = 0; i + 1 < _vector.size(); i += 2) {
-        int n1 = _vector[i];
-        int n2 = _vector[i + 1];
+    for (size_t i = 0; i + 1 < chain.size(); i += 2) {
+        int n1 = chain[i];
+        int n2 = chain[i + 1];
         if (n1 > n2)
             std::swap(n1, n2);
         pairs.push_back(std::make_pair(n1, n2));
     }
 
     int oddNbr = -1;
-    if (_vector.size() % 2 != 0)
-        oddNbr = _vector.back();
+    if (chain.size() % 2 != 0)
+        oddNbr = chain.back();
 
     std::vector<int> larges;
     for (size_t i = 0; i < pairs.size(); i++)
         larges.push_back(pairs[i].second);
 
     mergeInsertVec(larges);
+
+    std::vector<int> main_chain(larges);
+    std::vector<int> pend;
+    for (size_t i = 0; i < pairs.size(); i ++)
+        pend.push_back(pairs[i].first);
+
+    std::vector<size_t> jacobsthal;
+    jacobsthal.push_back(1); bound = std::find(mainChain.begin(), mainChain.end(), pairs[k-1].second);
+                std::vector<int>::iterator pos = std::lower_bound(mainChain.begin(), bound, pend[k-1]);
+                mainChain.insert(pos, pend[k-1]);
+                inserted[k-1] = true;
+    jacobsthal.push_back(1);
+    while (jacobsthal.back() < pend.size())
+        jacobsthal.push_back(jacobsthal[jacobsthal.size() - 1] + 2 * jacobsthal[jacobsthal.size() - 2]);
+
+    main_chain.insert(main_chain.begin(), pend[0]);
+
+    size_t jacobIndex = 2;
+    while (jacobIndex < jacobsthal.size()) {
+        size_t prev = jacobsthal[jacobIndex - 1];
+        size_t curr = jacobsthal[jacobIndex];
+
+        size_t end;
+        if (curr < pend.size())
+            end = curr;
+        else
+            end = pend.size();
+
+        for (size_t k = end; k > prev; k--) {
+            std::vector<int>::iterator big_bro = std::find(main_chain.begin(), main_chain.end(), pairs[k - 1]);
+            std::vector<int>::iterator pos = std::lower_bound
+        }
+    }
 }
